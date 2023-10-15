@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 2px solid black;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table rules="all" cellpadding="2" cellspacing="4" style="text-align: center;">
+            <tr>
+                <td colspan="4"><input type="text" id="screen"></td>
+            </tr>
+            <tr>
+                <td><button id="ac">AC</button></td>
+                <td><button id="ce">CE</button></td>
+                <td><button class="btn">/</button></td>
+                <td><button class="btn">%</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn">1</button></td>
+                <td><button class="btn">2</button></td>
+                <td><button class="btn">3</button></td>
+                <td><button class="btn">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn">4</button></td>
+                <td><button class="btn">5</button></td>
+                <td><button class="btn">6</button></td>
+                <td><button class="btn">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn">7</button></td>
+                <td><button class="btn">8</button></td>
+                <td><button class="btn">9</button></td>
+                <td><button class="btn">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn">0</button></td>
+                <td><button class="btn">00</button></td>
+                <td><button class="btn">.</button></td>
+                <td><button id="equals">=</button></td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        let x=document.getElementById("screen")
+        y=document.getElementsByClassName("btn")
+        for(let i=0;i<y.length;i++)
+        {
+            y[i].addEventListener("click",()=>
+            {
+                x.value=x.value+y[i].innerHTML
+            })
+        }
+
+        let z=document.getElementById("ac")
+        z.addEventListener("click",()=>
+        {
+            x.value=""
+        })
+
+        let p=document.getElementById("ce")
+        p.addEventListener("click",()=>
+        {
+            x.value=x.value.slice(0,-1)
+        })
+
+        let a=document.getElementById("equals")
+        a.addEventListener("click",()=>
+        {
+            x.value=eval(x.value)
+        })
+    </script>
+</body>
+</html>
