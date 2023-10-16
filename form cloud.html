@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Survey Form</title>
+    <style>
+        div {
+            background-color: aqua;
+            height: 900px;
+            width: 800px;
+        }
+        #a {
+            background-color: white;
+            height: 700px;
+            width: 700px;
+            margin-left: 40px;
+        }
+        input {
+            width: 280px;
+            height: 25px;
+            margin-left: 20px;
+        }
+        label {
+            margin-left: 20px;
+        }
+        .g {
+            margin-left: -115px;
+            height: 15px;
+        }
+        .m {
+            margin-left: -130px;
+        }
+        #n {
+            margin-left: 20px;
+        }
+        #k {
+            margin-left: 20px;
+            width: 70px;
+        }
+        #l {
+            margin-left: 20px;
+            width: 70px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <center><h1>Customer Survey Form</h1></center>
+        <div id="a">
+            <form id="form">
+                <label for="name">Name</label><br>
+                <input type="text" name="first_name" placeholder="enter first name" required><sup style="color: red;">*</sup>
+                <input type="text" name="last_name" placeholder="enter last name" required><sup style="color: red;">*</sup><br><br><br>
+                <label for="email">Enter your email</label><sup style="color: red;">*</sup><br>
+                <input type="email" name="email" placeholder="email id" required><br><br><br>
+                <label for="dateOfBirth">Enter your DOB</label><sup style="color: red;">*</sup><br>
+                <input type="date" name="dateOfBirth" min="2019-07-19" max="2023-12-26" required><br><br><br>
+                <label for="country">Country</label><br>
+                <select name="country" id="n">
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="North Korea">North Korea</option>
+                </select><br><br><br>
+                <label for="gender">Gender</label><sup style="color: red;">*</sup><br>
+                <input type="radio" name="gender" value="Male" class="g" required><label for="" class="m">Male</label><br>
+                <input type="radio" name="gender" value="Female" class="g" required><label for="" class="m">Female</label><br>
+                <input type="radio" name="gender" value="Others" class="g" required><label for="" class="m">Others</label><br><br><br>
+                <label for="profession">Profession</label><br>
+                <input type="text" name="profession" required><br><br><br>
+                <label for="phnNumber">Enter your Mobile number</label><sup style="color: red;">*</sup><br>
+                <input type="tel" name="phnNumber" minlength="10" maxlength="10" pattern="[0-9]{10}" required><br><br><br>
+                <input type="submit" value="Submit" id="k" id="submit-id">
+                <button type="button" id="l">Reset</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var firstName = document.getElementsByName("first_name")[0].value || "N/A";
+            var lastName = document.getElementsByName("last_name")[0].value || "N/A";
+            var email = document.getElementsByName("email")[0].value || "N/A";
+            var dateOfBirth = document.getElementsByName("dateOfBirth")[0].value || "N/A";
+            var gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : "N/A";
+            var country = document.getElementsByName("country")[0].value || "N/A";
+            var profession = document.getElementsByName("profession")[0].value || "N/A";
+            var phnNumber = document.getElementsByName("phnNumber")[0].value || "N/A";
+
+            var details = "Name: " + firstName + " " + lastName + "\nEmail: " + email + "\nDate of Birth: " + dateOfBirth + "\nGender: " + gender + "\nCountry: " + country + "\nProfession: " + profession + "\nMobile Number: " + phnNumber;
+            alert(details);
+
+            document.getElementById("form").reset();
+        });
+        document.getElementById("l").addEventListener("click", function () {
+            document.getElementById("form").reset();
+        });
+    </script>
+</body>
+</html>
